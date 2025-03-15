@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Home({ onHit }) {
 
-  var isJwtValidate = true;
+  const [isJwtValidate,setIsJwtValidate] =useState(true);
 
   useEffect(() => {
     onHit();
@@ -15,10 +15,13 @@ export default function Home({ onHit }) {
     const resp = getCookie();
     resp.then((value)=> {
       if(!value.includes("validated")){
+        setIsJwtValidate(true);
         toast.warning("login to continue");
         setTimeout(() => {
           navigator("/login");          
         }, 1500);        
+      }else{
+        setIsJwtValidate(false);
       }
     })
 
