@@ -28,5 +28,5 @@ jobs:
       # Build and push React app Docker image
       - name: Build and push React app
         run: |
-          docker build -t your-dockerhub-username/react-app:latest .
-          docker push your-dockerhub-username/react-app:latest
+          docker build -t vishalnmd18/react-app:latest .
+          docker push vishalnmd18/react-app:latest
