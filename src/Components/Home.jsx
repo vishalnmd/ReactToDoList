@@ -48,7 +48,7 @@ export default function Home({ onHit }) {
   const addTaskClicked = async () => {
     if (addBtnRef.current.innerText === "Add") {
       const resp = await axios.post(
-        "http://192.168.29.107:8080/addTask",
+        "http://localhost:8080/addTask",
         { task: tasks },
         { withCredentials: true }
       );
@@ -68,7 +68,7 @@ export default function Home({ onHit }) {
       const request = JSON.stringify(req);
       console.log(request);
       const resp = await axios.post(
-        "http://192.168.29.107:8080/updateTask",
+        "http://localhost:8080/updateTask",
         { request },
         { withCredentials: true }
       );
@@ -82,7 +82,7 @@ export default function Home({ onHit }) {
   };
 
   const fetchTaskList = async () => {
-    const response = await axios.get("http://192.168.29.107:8080/fetchTasks", {
+    const response = await axios.get("http://localhost:8080/fetchTasks", {
       withCredentials: true,
     });
     console.log(response.data);
@@ -95,7 +95,7 @@ export default function Home({ onHit }) {
 
   const taskCompleted = async (id) => {
     const response = axios.post(
-      "http://192.168.29.107:8080/taskCompleted",
+      "http://localhost:8080/taskCompleted",
       { id: id },
       { withCredentials: true }
     );
@@ -106,7 +106,7 @@ export default function Home({ onHit }) {
 
   const removeTask = async (id) => {
     console.log(id);
-    const response = axios.delete("http://192.168.29.107:8080/removeTask", {
+    const response = axios.delete("http://localhost:8080/removeTask", {
       withCredentials: true,
       data: { id: id },
     });

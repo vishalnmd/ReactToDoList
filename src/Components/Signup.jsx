@@ -16,7 +16,8 @@ export default function Signup ({onHit}){
         console.log(jsonData);        
 
         try{
-            const response = await axios.post("http://192.168.29.107:8080/signin",jsonData);
+            // const response = await axios.post("http://192.168.29.107:8080/signin",jsonData);
+            const response = await axios.post("http://localhost:8080/signin",jsonData);
             toast.success(response.data);
         
             await setTimeout(() => {

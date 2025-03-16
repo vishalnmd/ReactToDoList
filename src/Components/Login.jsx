@@ -29,7 +29,11 @@ export default function Login({onHit}) {
         console.log(document.getElementById('email-login').value);
         console.log(document.getElementById('password-login').value);        
         try{
-            const response = await axios.post('http://192.168.29.107:8080/loginUser', {
+            // const response = await axios.post('http://192.168.29.107:8080/loginUser', {
+            //     email: document.getElementById('email-login').value,
+            //     password: document.getElementById('password-login').value
+            // });
+            const response = await axios.post('http://localhost:8080/loginUser', {
                 email: document.getElementById('email-login').value,
                 password: document.getElementById('password-login').value
             });            
