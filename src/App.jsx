@@ -2,7 +2,7 @@ import './App.css'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
 import Navbar from './Components/Navbar'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
 import Error from './Components/Error'
 import Home from './Components/Home'
@@ -35,7 +35,7 @@ function App() {
     </div>
 
       {showNav && <Navbar/>}
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="login" element={<Login onHit = {onHit} />} />
           <Route path="signup" element={<Signup onHit = {onHit} />} />
@@ -43,7 +43,7 @@ function App() {
           <Route path="/" element={<Error />} />
           <Route path='*' element={<Error></Error>} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
               
     </>
   )
