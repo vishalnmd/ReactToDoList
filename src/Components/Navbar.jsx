@@ -4,7 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 function Navbar (){
 
     const onLogoutClick = async()=>{
-        const response = await axios.post("http://localhost:8080/logoutUser",{},{withCredentials:true});
+        const response = await axios.post("https://todolist-backend-tes5.onrender.com/logoutUser",{},{withCredentials:true});
         console.log(response.data);
         toast.success(response.data);
         window.location.href = "/login";
