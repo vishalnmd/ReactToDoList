@@ -2,9 +2,10 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 
 function Navbar (){
+    const baseUrl = import.meta.env.VITE_REACT_APP_API_URL;  
 
     const onLogoutClick = async()=>{
-        const response = await axios.post("https://todolist-backend-tes5.onrender.com/logoutUser",{},{withCredentials:true});
+        const response = await axios.post(`${baseUrl}/logoutUser`,{},{withCredentials:true});
         console.log(response.data);
         toast.success(response.data);
         window.location.href = "/login";

@@ -7,7 +7,8 @@ import { toast, ToastContainer } from "react-toastify";
 export default function Signup ({onHit}){
 
     const formRef = useRef();
-    const navigate = useNavigate();        
+    const navigate = useNavigate();      
+    const baseUrl = import.meta.env.VITE_REACT_APP_API_URL;  
 
     const onSignupSubmit = async(e) => {
         e.preventDefault();
@@ -15,9 +16,9 @@ export default function Signup ({onHit}){
         const jsonData = Object.fromEntries(formData.entries());
         console.log(jsonData);        
 
-        try{
+        try{            
             // const response = await axios.post("http://192.168.29.107:8080/signin",jsonData);
-            const response = await axios.post("https://todolist-backend-tes5.onrender.com/signin",jsonData);
+            const response = await axios.post(`${baseUrl}/signin`,jsonData);
             toast.success(response.data);
         
             await setTimeout(() => {

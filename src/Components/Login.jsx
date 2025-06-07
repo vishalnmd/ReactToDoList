@@ -9,6 +9,7 @@ axios.defaults.withCredentials = true;
 export default function Login({onHit}) {       
 
     const navigator = useNavigate();    
+    const baseUrl = import.meta.env.VITE_REACT_APP_API_URL;  
     
     useEffect( ()=>{
         onHit();
@@ -33,7 +34,7 @@ export default function Login({onHit}) {
             //     email: document.getElementById('email-login').value,
             //     password: document.getElementById('password-login').value
             // });
-            const response = await axios.post('https://todolist-backend-tes5.onrender.com/loginUser', {
+            const response = await axios.post(`${baseUrl}/loginUser`, {
                 email: document.getElementById('email-login').value,
                 password: document.getElementById('password-login').value
             });            

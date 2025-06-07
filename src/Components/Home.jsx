@@ -34,6 +34,7 @@ export default function Home({ onHit }) {
   const addBtnRef = useRef();
   const inputRef = useRef();
   const navigator = useNavigate();
+  const baseUrl = import.meta.env.VITE_REACT_APP_API_URL;  
 
   var id = 0;
 
@@ -48,7 +49,7 @@ export default function Home({ onHit }) {
   const addTaskClicked = async () => {
     if (addBtnRef.current.innerText === "Add") {
       const resp = await axios.post(
-        "https://todolist-backend-tes5.onrender.com/addTask",
+        `${import.meta.env.REACT_APP_API_URL}/addTask`,
         { task: tasks },
         { withCredentials: true }
       );
@@ -68,7 +69,7 @@ export default function Home({ onHit }) {
       const request = JSON.stringify(req);
       console.log(request);
       const resp = await axios.post(
-        "https://todolist-backend-tes5.onrender.com/updateTask",
+        `${baseUrl}/updateTask`,
         { request },
         { withCredentials: true }
       );
@@ -82,7 +83,7 @@ export default function Home({ onHit }) {
   };
 
   const fetchTaskList = async () => {
-    const response = await axios.get("https://todolist-backend-tes5.onrender.com/fetchTasks", {
+    const response = await axios.get(`${baseUrl}/fetchTasks`, {
       withCredentials: true,
     });
     console.log(response.data);
@@ -95,7 +96,7 @@ export default function Home({ onHit }) {
 
   const taskCompleted = async (id) => {
     const response = axios.post(
-      "https://todolist-backend-tes5.onrender.com/taskCompleted",
+      `${baseUrl}/taskCompleted`,
       { id: id },
       { withCredentials: true }
     );
@@ -106,7 +107,7 @@ export default function Home({ onHit }) {
 
   const removeTask = async (id) => {
     console.log(id);
-    const response = axios.delete("https://todolist-backend-tes5.onrender.com/removeTask", {
+    const response = axios.delete(`${baseUrl}/removeTask`, {
       withCredentials: true,
       data: { id: id },
     });
