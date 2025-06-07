@@ -49,7 +49,7 @@ export default function Home({ onHit }) {
   const addTaskClicked = async () => {
     if (addBtnRef.current.innerText === "Add") {
       const resp = await axios.post(
-        `${import.meta.env.REACT_APP_API_URL}/addTask`,
+        `${baseUrl}/addTask`,
         { task: tasks },
         { withCredentials: true }
       );
